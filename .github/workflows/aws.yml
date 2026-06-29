@@ -1,0 +1,19 @@
+name: Run My First Workflow
+on:
+  push:
+    branches: [main]
+    paths-ignore: [.github/**]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: "0,30 8-18 * * 1-5"
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - run: | 
+              echo "Hello RWS!"
+      - name: Checkout
+        uses: actions/checkout@v7.0.0
+    
+
