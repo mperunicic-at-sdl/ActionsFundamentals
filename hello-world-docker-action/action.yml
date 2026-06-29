@@ -1,0 +1,28 @@
+name: Who To Greet Lab
+description: lab-02
+author: mio
+inputs:
+  name:
+    description: 'Name to greet'
+    required: true
+    default: 'World'
+
+outputs:
+  greeting:
+    description: 'This is the greeting content'
+
+runs:
+  # For more on Docker actions, see:
+  # https://docs.github.com/en/actions/sharing-automations/creating-actions/creating-a-docker-container-action
+  using: docker
+  # 'docker://image:tag' uses pre-built image, 'Dockerfile' builds locally
+  image: 'docker://alpine:3.20'
+  env:
+    INPUT_NAME: ${{ inputs.name }}
+  entrypoint: 'sh'
+  args:
+    - -c
+    - |
+      GREETING="Hello $INPUT_NAME"
+      echo "$GREETING"
+      echo "greeting=$GREETING" >> $GITHUB_OUTPUT
