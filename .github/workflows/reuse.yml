@@ -12,5 +12,5 @@ jobs:
     runs-on: ubuntu-latest    
     steps:
       - run: |
-          echo "Bla bla ${{ needs.call-workflow.outputs.time }}"
+          echo "the value from reusable: ${{ needs.call-workflow.outputs.current-time }}"
         
