@@ -6,4 +6,10 @@ jobs:
   call-workflow:
     uses: ./.github/workflows/reusable.yml
     with:
-      who-to-greet: '@mperunicic-at-sdl'
+      who-to-greet: '@mperunicic-at-sdl'    
+  job-2:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Bla bla"
+        
